@@ -17,6 +17,10 @@ config :phoenix_pay, PhoenixPayWeb.Endpoint,
   pubsub_server: PhoenixPay.PubSub,
   live_view: [signing_salt: "+J23b5V7"]
 
+config :phoenix_pay, PhoenixPay.Repo,
+  migration_primary_key: [type: :binary_id],
+  migration_foreign_key: [type: :binary_id]
+
 # Configures the mailer
 #
 # By default it uses the "Local" adapter which stores the emails
