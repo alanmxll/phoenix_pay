@@ -1,9 +1,9 @@
 defmodule PhoenixPay.Accounts.Transaction do
   alias Ecto.Multi
 
-  alias PhoenixPay.Repo
-
   alias PhoenixPay.Accounts.Operation
+  alias PhoenixPay.Accounts.Transactions.Response, as: TransactionResponse
+  alias PhoenixPay.Repo
 
   def call(%{"from" => from_id, "to" => to_id, "value" => value}) do
     withdraw_params = build_params(from_id, value)
@@ -23,7 +23,7 @@ defmodule PhoenixPay.Accounts.Transaction do
         {:error, reason}
 
       {:ok, %{deposit: to_account, withdraw: from_account}} ->
-        {:ok, %{to_account: to_account, from_account: from_account}}
+        {:ok, TransactionResponse.build(from_account, to_account)}
     end
   end
 end

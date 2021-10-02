@@ -2,6 +2,7 @@ defmodule PhoenixPayWeb.AccountsController do
   use PhoenixPayWeb, :controller
 
   alias PhoenixPay.Account
+  alias PhoenixPay.Accounts.Transactions.Response, as: TransactionResponse
 
   action_fallback PhoenixPayWeb.FallbackController
 
@@ -18,6 +19,14 @@ defmodule PhoenixPayWeb.AccountsController do
       conn
       |> put_status(:ok)
       |> render("update.json", account: account)
+    end
+  end
+
+  def transaction(conn, params) do
+    with {:ok, %TransactionResponse{} = transaction} <- PhoenixPay.transaction(params) do
+      conn
+      |> put_status(:ok)
+      |> render("transaction.json", transaction: transaction)
     end
   end
 end
