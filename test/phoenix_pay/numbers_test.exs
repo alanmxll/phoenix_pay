@@ -1,5 +1,5 @@
 defmodule PhoenixPay.NumbersTest do
-  use ExUnit.Case
+  use ExUnit.Case, async: true
 
   alias PhoenixPay.Numbers
 

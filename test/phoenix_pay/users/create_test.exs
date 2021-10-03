@@ -1,5 +1,5 @@
 defmodule PhoenixPay.Users.CreateTest do
-  use PhoenixPay.DataCase
+  use PhoenixPay.DataCase, async: true
 
   alias PhoenixPay.User
   alias PhoenixPay.Users.Create

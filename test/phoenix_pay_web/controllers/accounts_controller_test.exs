@@ -1,5 +1,5 @@
 defmodule PhoenixPayWeb.AccountsControllerTest do
-  use PhoenixPayWeb.ConnCase
+  use PhoenixPayWeb.ConnCase, async: true
 
   alias PhoenixPay.{Account, User}
 
