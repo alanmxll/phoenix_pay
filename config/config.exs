@@ -21,6 +21,10 @@ config :phoenix_pay, PhoenixPay.Repo,
   migration_primary_key: [type: :binary_id],
   migration_foreign_key: [type: :binary_id]
 
+config :phoenix_pay, :basic_auth,
+  username: "alanmxll",
+  password: "phoenix123"
+
 # Configures the mailer
 #
 # By default it uses the "Local" adapter which stores the emails
